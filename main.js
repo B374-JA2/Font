@@ -19,7 +19,7 @@ function gotPoses(results) {
     console.log(results);
     xRightWrist = results[0].pose.rightWrist.x;
     xLeftWrist = results[0].pose.leftWrist.x;
-    distanceMeasure = floor(xRightWrist - xLeftWrist);
+    distanceMeasure = floor(xLeftWrist - xRightWrist);
 
 }
 
@@ -29,10 +29,10 @@ function modelLoaded() {
 
 function draw() {
     background("darkblue");
-    fill("white");
     stroke("hotpink");
     strokeWeight(5);
-    document.getElementById("fontSize").innerHTML="font size- " + distanceMeasure;
+    document.getElementById("fontSize").innerHTML="font size: " + distanceMeasure;
     textSize(distanceMeasure);
+    fill("white");
     text("Preppy", 100, 200);
 }
